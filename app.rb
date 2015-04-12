@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'sinatra/reloader'
+require 'pg'
+require_relative 'config.rb'
 require_relative 'user'
+require 'pry'
 
 
 get '/' do
@@ -8,5 +11,10 @@ get '/' do
 end
 
 get '/login' do
-	erb :login
+	erb :signup
+end
+
+post '/login' do
+	User.create( username: params[:InputUsername], email: params[:InputEmail], password: params[:InputPassword])
+	redirect to ('/')
 end
