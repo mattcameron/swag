@@ -1,8 +1,8 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-4 bg-primary">Columns: 4</div>
-		<div class="col-md-4 bg-info">Columns: 4</div>
-		<div class="col-md-4 bg-warning">Columns: 4</div>
+		<% @products.each do |product| %>
+			<div class="col-md-4"><img src="<%= product.image_url %>" class="img-responsive"></div>
+		<% end %>
 	</div>
 </div>

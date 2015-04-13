@@ -1,0 +1,5 @@
+<ul>
+	<% @stores.each do |store| %>
+		<li><a href="/stores/<%= store.name %>"><%= store.name %></a></li>
+		<% end %>
+</ul>
