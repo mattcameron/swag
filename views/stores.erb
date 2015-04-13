@@ -1,5 +1,18 @@
-<ul>
+<div class="container">
 	<% @stores.each do |store| %>
-		<li><a href="/stores/<%= store.name %>"><%= store.name %></a></li>
-		<% end %>
-</ul>
+	<a href="/stores/<%= store.name %>">
+		<div class="jumbotron">
+			<div class="media">
+				<div class="media-left col-md-2">
+						<img class="img-responsive" src="<%= store.products.first.image_url %>" alt="placeholder">
+				</div>
+				<div class="media-body">
+					<h3 class="media-heading"><%= store.name %></h3>
+					<p>Description of the store and it's products. etc.</p>
+				</div>
+			</div>
+		</div>
+	</a>
+	<% end %>
+
+</div>

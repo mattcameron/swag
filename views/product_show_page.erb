@@ -1,4 +1,24 @@
 <div class="container">
-	<img src="<%= @product.image_url %>" class="img-responsive">
-	<%= @product.name %>
+	<div class="row">
+		<div class="col-md-5">
+			<img src="<%= @product.image_url %>" class="img-responsive">
+		</div>
+		<div class="col-md-6">
+			<div class="likes">
+				<p><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> 123 people like this</p>
+			</div>
+			<div class="row">
+				<div class="col-md-5 col-md-offset-1">
+					<div class="price">$<%= @product.price %> <span>plus shipping</span>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<button type="button" class="btn btn-info btn-lg">Add to cart</button>
+				</div>
+			</div>
+
+			<h3><%= @product.name %></h3>
+			<p><%= @product.description %></p>
+		</div>
+	</div>
 </div>
