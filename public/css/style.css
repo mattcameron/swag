@@ -17,3 +17,14 @@
 	font-size: 50%;
 }
 
+/* MASONRY STUFF */
+.item {
+	width: 30%;
+	margin-bottom: 10px;
+}
+
+.item.w2 { width: 50%; }
+
+#feed img {
+	min-width: 100%;
+}

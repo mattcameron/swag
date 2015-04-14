@@ -1,8 +1,8 @@
-<script src="/js/masonry.pkgd.min.js"></script>
-<div class="container">
+
+<div class="container" id="feed">
 	<div class="row">
 		<% @products.each do |product| %>
-			<div class="col-md-3"><a href="/stores/<%= product.store.name %>/<%= product.id %>"><img src="<%= product.image_url %>" class="img-responsive"></a></div>
+			<div class="item"><a href="/stores/<%= product.store.name %>/<%= product.id %>"><img src="<%= product.image_url %>" class="img-responsive"></a></div>
 		<% end %>
 	</div>
 </div>

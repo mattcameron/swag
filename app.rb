@@ -22,7 +22,7 @@ end
 
 
 get '/' do
-	@products = Product.all
+	@products = Product.order("RANDOM()")
 	erb :index
 end
 
