@@ -16,7 +16,6 @@ $('.item').hover(function() {
 });
 
 
-
 $(document).ready(function() {
 
 	var $container = $('#feed');

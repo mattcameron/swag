@@ -21,6 +21,7 @@
 .item {
 	width: 30%;
 	margin-bottom: 10px;
+	position: relative;
 }
 
 .item.w2 { width: 50%; }
@@ -31,11 +32,9 @@
 
 .productInfo {
 	display: none;
-	position: absolute;
 	left: 0;
 	top: 0;
 	width: 100%;
-	height: 100%;
 }
 
 .productHoverTop {
@@ -43,6 +42,10 @@
 	padding: 20px 10px;
 	color: #fff;
 	margin: 0;
+	position: absolute;
+	top:0;
+	left: 0;
+	width: 100%;
 }
 
 .productHoverTop .glyphicon {
