@@ -17,6 +17,23 @@
 							</a>
 						</div>
 					</div>
+
+					<div class="productHoverBottom">
+						<div class="row">
+							<div class="col-md-12">
+							<%= product.name %>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<a href="/stores/<%= product.store.name %>"><%= product.store.name %></a>
+							</div>
+							<div class="col-md-6 text-right">
+								<button type="button" class="btn btn-success">Add to Cart</button>
+							</div>
+						</div>
+					</div>
+
 				</div>
 				</div>
 			<% end %>

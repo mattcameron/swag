@@ -52,8 +52,10 @@
 }
 
 .productHoverTop .label {
-	font-size: 1.2em;
-	line-height: 1.2em;
+	font-size: 1em;
+	font-weight: 300;
+	line-height: 1.5;
+	padding: .5em .7em;
 }
 
 .productHoverTop a {
@@ -66,4 +68,15 @@
 
 .productLikes {
 	color: red;
+}
+
+.productHoverBottom {
+	position: absolute;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(0,0,0,0.6);
+	padding: 20px 10px;
+	color: #fff;
+	margin: 0;
 }
