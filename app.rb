@@ -73,8 +73,13 @@ post '/product/new' do
 	new_product.name = params[:productName]
 	new_product.image_url = params[:image_url]
 	new_product.price = params[:price]
-	new_product.category_id = params[:categoryId]
 	new_product.description = params[:description]
+	if params[:categoryId] == "99"
+		new_cat = Category.create(name: params[:newCategory])
+		new_product.category_id = new_cat.id
+	else
+		new_product.category_id = params[:categoryId]
+	end
 	new_product.save
 	redirect to ('/')
 end

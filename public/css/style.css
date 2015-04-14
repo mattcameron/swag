@@ -1,3 +1,7 @@
+#newCategory {
+	display: none;
+}
+
 .likes {
 	color: red;
 	text-align: center;
@@ -12,3 +16,4 @@
 .price span {
 	font-size: 50%;
 }
+
