@@ -9,6 +9,12 @@ $('#categoryId').on( 'change', function() {
 	};
 });
 
+$('.item').hover(function() {
+	$(this).find('.productInfo').show();
+}, function () {
+	$('.productInfo').hide();
+});
+
 
 
 $(document).ready(function() {

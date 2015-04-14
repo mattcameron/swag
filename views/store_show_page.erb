@@ -2,7 +2,23 @@
 	<h1 class="text-center"><%= @store.name %></h1>
 		<div class="row">
 			<% @products.each do |product| %>
-				<div class="item"><a href="/stores/<%= @store.name %>/<%= product.id %>"><img src="<%= product.image_url %>" class="img-responsive" class="img-responsive img-rounded"></a></div>
+				<div class="item">
+					<a href="/stores/<%= @store.name %>/<%= product.id %>">
+						<img src="<%= product.image_url %>" class="img-responsive" class="img-responsive img-rounded">
+					</a>
+				<div class="productInfo">
+					<div class="row productHoverTop">
+						<div class="col-md-6 productLikes">
+							<span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <%= product.likes %> likes
+						</div>
+						<div class="col-md-6 text-right">
+							<a href="/stores/<%= @store.name %>/<%= product.id %>">
+								<span class="label label-as-badge label-info">$<%= product.price %></span>
+							</a>
+						</div>
+					</div>
+				</div>
+				</div>
 			<% end %>
 		</div>
 </div>
