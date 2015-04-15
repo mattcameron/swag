@@ -15,14 +15,21 @@ $('.item').hover(function() {
 	$('.productInfo').hide();
 });
 
-// $('.item').click(function() {
-// 	event.preventDefault()
-// // 	$(this).find('.productInfo').show();
-// // }
-// 	var name = $(this).find('.productNameDisplay')[0];
-// 	console.log(name.innerHTML)
-// });
+$('.heartIcon').hover(function() {
+	$(this).removeClass('glyphicon-heart-empty');
+	$(this).addClass('glyphicon-heart');
+}, function () {
+	$(this).removeClass('glyphicon-heart');
+	$(this).addClass('glyphicon-heart-empty');
+});
 
+$('.productLikes').on('click', function() {
+	url = event.target.id + "/newlike"
+	$.ajax({
+		url: url,
+		method: 'post',
+	})
+});
 
 $(document).ready(function() {
 

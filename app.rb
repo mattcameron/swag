@@ -136,6 +136,11 @@ delete '/product/:id/delete' do
 end
 
 
+post '/:productId/newlike' do
+	product = Product.find(params[:productId])
+	likes = product.likes + 1
+	product.update(likes: likes)
+end
 
 # API STUFF
 
@@ -155,4 +160,10 @@ get '/api/store/:storeName' do
 	store = Store.where(name: params[:storeName]).first
 	content_type :json
 	store.to_json
+end
+
+get '/api/products/:productId' do
+	product = Product.find(params[:productId])
+	content_type :json
+	product.to_json
 end
