@@ -51,7 +51,7 @@ end
 
 get '/stores/:storeName' do
 	@store = Store.where( name: params[:storeName]).first
-	@products = @store.products
+	@products = @store.products.order(:likes).reverse_order
 	erb :store_show_page
 end
 
