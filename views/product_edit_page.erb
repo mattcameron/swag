@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-centered">
+
+      <h3 class="text-center">Edit Product</h3>
+
+      <form action="/<%= @product.store.id %>/<%= @product.id %>/edit" method="post">
+        <input type="hidden" name="_method" value="put">
+        <div class="form-group">
+          <label for="storeId">Store</label>
+          <select name="storeId" id="storeId" class="form-control">
+            <!-- Display the current category first -->
+            <option value="<%= @product.store.id %>"><%= @product.store.name %></option>
+            <% @stores.each do |store| %>
+            <!-- Don't display the current category again -->
+              <% unless store == @product.store %>
+            <option value="<%= store.id %>"><%= store.name %></option>
+              <% end %>
+            <% end %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="productName">Product Name</label>
+          <input type="text" class="form-control" name="productName" value="<%= @product.name %>">
+        </div>
+        <div class="form-group">
+          <label for="image_url">Image Url</label>
+          <input type="text" class="form-control" name="image_url" value="<%= @product.image_url %>">
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <div class="input-group">
+            <span class="input-group-addon">$</span>
+            <input type="text" class="form-control" name="price" value="<%= "%.2f" % @product.price %>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="categoryId">Category</label>
+          <select name="categoryId" id="categoryId" class="form-control">
+            <!-- Display the current category first -->
+            <option value="<%= @product.category.id %>"><%= @product.category.name %></option>
+            <% @categories.each do |category| %>
+              <!-- Don't display the current category again -->
+              <% unless category == @product.category %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+              <% end %>
+            <% end %>
+            <option value="99">Add new</option>
+          </select>
+        </div>
+
+        <!-- Hidden 'new category' field -->
+        <div class="form-group" id="newCategory">
+          <label for="new_category">New Category</label>
+          <input type="text" class="form-control" name="newCategory">
+        </div>
+
+        <div class="form-group">
+          <label for="description">Product Description</label>
+          <textarea class="form-control" name="description" rows="5" ><%= @product.description %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-default" id="newProductButton">Edit</button>
+      </form>
+    </div>
+  </div>
+</div>

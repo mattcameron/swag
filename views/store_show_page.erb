@@ -14,7 +14,7 @@
 					</div>
 					<div class="col-md-6 text-right">
 						<a href="/stores/<%= @store.name %>/<%= product.id %>">
-							<span class="label label-as-badge label-info">$<%= product.price %></span>
+							<span class="label label-as-badge label-info">$<%= "%.0f" % product.price %></span>
 						</a>
 					</div>
 				</div>

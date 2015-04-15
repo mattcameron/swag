@@ -8,7 +8,6 @@ require_relative 'category'
 require_relative 'product'
 require 'pry'
 
-
 after do
 	ActiveRecord::Base.connection.close
 end
@@ -22,7 +21,7 @@ end
 
 
 get '/' do
-	@products = Product.order("RANDOM()")
+	@products = Product.order(:likes).reverse_order
 	erb :index
 end
 
@@ -54,7 +53,16 @@ end
 get '/stores/:storeName/:productId' do
 	@store = Store.where( name: params[:storeName]).first
 	@product = @store.products.find(params[:productId])
+	likes = @product.likes += 1
+	@product.update(likes: likes)
 	erb :product_show_page
+end
+
+get '/stores/:storeName/:productId/edit' do
+	@stores = Store.all
+	@product = Product.find(params[:productId])
+	@categories = Category.all
+	erb :product_edit_page
 end
 
 post '/signup' do
@@ -83,4 +91,21 @@ post '/product/new' do
 	end
 	new_product.save
 	redirect to ('/')
+end
+
+put '/:storeName/:productId/edit' do
+	product = Product.find(params[:productId])
+	product.store_id = params[:storeId]
+	product.name = params[:productName]
+	product.image_url = params[:image_url]
+	product.price = params[:price]
+	product.description = params[:description]
+	if params[:categoryId] == "99"
+		new_cat = Category.create(name: params[:newCategory])
+		product.category_id = new_cat.id
+	else
+		product.category_id = params[:categoryId]
+	end
+	product.save
+	redirect to '/'
 end

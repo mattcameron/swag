@@ -2,14 +2,15 @@
 	<div class="row">
 		<div class="col-md-5">
 			<img src="<%= @product.image_url %>" class="img-responsive">
+			<a href="/stores/<%= @store.name %>/<%= @product.id %>/edit">Edit</a>
 		</div>
 		<div class="col-md-6">
 			<div class="likes">
-				<p><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> 123 people like this</p>
+				<p><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> <%= @product.likes %> people like this</p>
 			</div>
 			<div class="row">
 				<div class="col-md-5 col-md-offset-1">
-					<div class="price">$<%= @product.price %> <span>plus shipping</span>
+					<div class="price">$<%= "%.2f" % @product.price %> <span>plus shipping</span>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -18,7 +19,7 @@
 			</div>
 
 			<h3><%= @product.name %></h3>
-			<p><%= @product.description %></p>
+			<p><%= @product.description.gsub(/\n/, '<br/>') %></p>
 		</div>
 	</div>
 </div>

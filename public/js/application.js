@@ -15,6 +15,14 @@ $('.item').hover(function() {
 	$('.productInfo').hide();
 });
 
+// $('.item').click(function() {
+// 	event.preventDefault()
+// // 	$(this).find('.productInfo').show();
+// // }
+// 	var name = $(this).find('.productNameDisplay')[0];
+// 	console.log(name.innerHTML)
+// });
+
 
 $(document).ready(function() {
 
