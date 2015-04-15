@@ -68,6 +68,17 @@ get '/stores/:storeName/:productId/edit' do
 	erb :product_edit_page
 end
 
+get '/search' do
+	find_cat = Category.find_by(name: params[:search])
+
+	if !find_cat || find_cat.products.count == 0
+		erb :search
+	else
+		@products = Product.where(category_id: find_cat.id).order(:likes).reverse_order
+		erb :index
+	end
+end
+
 post '/signup' do
 	User.create( username: params[:inputUsername], email: params[:inputEmail], password: params[:inputPassword])
 	redirect to ('/')
