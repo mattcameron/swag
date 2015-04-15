@@ -103,9 +103,6 @@ post '/product/new' do
 	redirect to ('/')
 end
 
-
-
-
 put '/stores/:storeName/edit' do
 	store = Store.where(name: params[:storeName]).first
 	store.name = params[:storeName]
