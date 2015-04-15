@@ -34,9 +34,8 @@ $('.productLikes').on('click', function() {
 				url: '/api/products/' + productId,
 				method: 'get',
 				dataType: 'json'
-			}).done(function (data) {
-				$('.' + productId + 'likeNumber').html(data.likes)
-				console.log(data.likes);
+			}).done(function (product) {
+				$('.' + productId + 'likeNumber').html(product.likes)
 			})
 		}
 	})
@@ -48,8 +47,9 @@ $(document).ready(function() {
 	// initialize Masonry after all images have loaded
 	$container.imagesLoaded( function() {
 	  $container.masonry({
+	  	columnWidth: 340,
 	  	gutter: 10,
-			itemSelector: '.item',
+			itemSelector: '.item'
 	  });
 	});
 

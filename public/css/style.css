@@ -6,7 +6,7 @@
 	color: red;
 	text-align: center;
 	font-size: 1.5em;
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 .price {
@@ -19,7 +19,7 @@
 
 /* MASONRY STUFF */
 .item {
-	width: 30%;
+	width: 340px;
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -82,4 +82,8 @@
 	padding: 20px 10px;
 	color: #fff;
 	margin: 0;
+}
+
+.categories {
+	margin: 20px 0;
 }
