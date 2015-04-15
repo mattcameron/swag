@@ -8,7 +8,8 @@
 				</div>
 				<div class="media-body">
 					<h3 class="media-heading"><%= store.name %></h3>
-					<p>Description of the store and it's products. etc.</p>
+					<p><%= store.description %></p>
+					<a href="/stores/<%= store.name %>/edit"><button class="btn btn-info">Edit Store</button></a>
 				</div>
 			</div>
 		</div>

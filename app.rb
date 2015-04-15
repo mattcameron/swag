@@ -30,18 +30,23 @@ get '/signup' do
 end
 
 get '/stores/new' do
-	erb :new_store
+	erb :store_new_page
 end
 
 get '/stores' do
 	@stores = Store.all
-	erb :stores
+	erb :store_index_page
 end
 
 get '/product/new' do
 	@stores = Store.all
 	@categories = Category.all
 	erb :new_product
+end
+
+get '/stores/:storeName/edit' do
+	@store = Store.where(name: params[:storeName]).first
+	erb :store_edit_page
 end
 
 get '/stores/:storeName' do
@@ -71,7 +76,12 @@ post '/signup' do
 end
 
 post '/stores/new' do
-	Store.create(name: params[:storeName])
+	new_store = Store.new
+	new_store.name = params[:storeName]
+	new_store.url = params[:storeUrl]
+	new_store.location = params[:storeLocation]
+	new_store.likes = 0
+	new_store.save
 	redirect to ('/')
 end
 
@@ -93,6 +103,19 @@ post '/product/new' do
 	redirect to ('/')
 end
 
+
+
+
+put '/stores/:storeName/edit' do
+	store = Store.where(name: params[:storeName]).first
+	store.name = params[:storeName]
+	store.url = params[:storeUrl]
+	store.location = params[:storeLocation]
+	store.description = params[:storeDescription]
+	store.save
+	redirect to '/stores'
+end
+
 put '/:storeName/:productId/edit' do
 	product = Product.find(params[:productId])
 	product.store_id = params[:storeId]
@@ -108,4 +131,31 @@ put '/:storeName/:productId/edit' do
 	end
 	product.save
 	redirect to '/'
+end
+
+delete '/product/:id/delete' do
+	Product.find(params[:id]).delete
+	redirect to '/'
+end
+
+
+
+# API STUFF
+
+get '/api/stores' do
+	stores = Store.all
+	content_type :json
+	stores.to_json
+end
+
+get '/api/products' do
+	products = Product.all
+	content_type :json
+	products.to_json
+end
+
+get '/api/store/:storeName' do
+	store = Store.where(name: params[:storeName]).first
+	content_type :json
+	store.to_json
 end
