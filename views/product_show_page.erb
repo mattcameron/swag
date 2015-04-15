@@ -2,7 +2,12 @@
 	<div class="row">
 		<div class="col-md-5">
 			<img src="<%= @product.image_url %>" class="img-responsive">
-			<a href="/stores/<%= @store.name %>/<%= @product.id %>/edit">Edit</a>
+			<a href="/stores/<%= @store.name %>/<%= @product.id %>/edit"><button class="btn btn-primary">Edit</button></a>
+
+			<form action="/product/<%= @product.id %>/delete" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<button class="btn btn-warning">Delete</button>
+			</form>
 		</div>
 		<div class="col-md-6">
 			<div class="likes">
