@@ -58,8 +58,6 @@ end
 get '/stores/:storeName/:productId' do
 	@store = Store.where( name: params[:storeName]).first
 	@product = @store.products.find(params[:productId])
-	likes = @product.likes += 1
-	@product.update(likes: likes)
 	erb :product_show_page
 end
 
@@ -134,7 +132,6 @@ delete '/product/:id/delete' do
 	Product.find(params[:id]).delete
 	redirect to '/'
 end
-
 
 post '/:productId/newlike' do
 	product = Product.find(params[:productId])

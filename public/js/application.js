@@ -24,10 +24,21 @@ $('.heartIcon').hover(function() {
 });
 
 $('.productLikes').on('click', function() {
-	url = event.target.id + "/newlike"
+	productId = event.target.id
+	url = "/" + productId + "/newlike"
 	$.ajax({
 		url: url,
 		method: 'post',
+		success: function () {
+			$.ajax({
+				url: '/api/products/' + productId,
+				method: 'get',
+				dataType: 'json'
+			}).done(function (data) {
+				$('.' + productId + 'likeNumber').html(data.likes)
+				console.log(data.likes);
+			})
+		}
 	})
 });
 
