@@ -68,7 +68,6 @@ get '/stores/:storeName' do
 end
 
 get '/stores/:storeName/:productId' do
-	redirect to '/login' unless logged_in?
 	@store = Store.where( name: params[:storeName]).first
 	@product = @store.products.find(params[:productId])
 	erb :product_show_page
@@ -83,6 +82,7 @@ get '/stores/:storeName/:productId/edit' do
 end
 
 get '/search' do
+	redirect to '/login' unless logged_in?
 	find_cat = Category.find_by(name: params[:search])
 
 	if !find_cat || find_cat.products.count == 0

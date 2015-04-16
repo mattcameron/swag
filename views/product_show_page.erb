@@ -5,17 +5,19 @@
 			<div class="row categories">
 				<p><strong>Category: </strong>	<%= @product.category.name %></p>
 			</div>
-			<div class="row">
-				<div class="col-md-2">
-					<a href="/stores/<%= @store.name %>/<%= @product.id %>/edit"><button class="btn btn-primary">Edit</button></a>
+			<% if logged_in? %>
+				<div class="row">
+					<div class="col-md-2">
+						<a href="/stores/<%= @store.name %>/<%= @product.id %>/edit"><button class="btn btn-primary">Edit</button></a>
+					</div>
+					<div class="col-md-2">
+						<form action="/product/<%= @product.id %>/delete" method="post">
+							<input type="hidden" name="_method" value="delete">
+							<button class="btn btn-warning">Delete</button>
+						</form>
+					</div>
 				</div>
-				<div class="col-md-2">
-					<form action="/product/<%= @product.id %>/delete" method="post">
-				<input type="hidden" name="_method" value="delete">
-				<button class="btn btn-warning">Delete</button>
-			</form>
-				</div>
-			</div>
+				<% end %>
 		</div>
 		<div class="col-md-6 productDetails">
 			<div class="likes productLikes">
