@@ -9,6 +9,42 @@
 	margin-top: 50px;
 }
 
+nav h1 {
+	/*display: inline;*/
+	/*line-height: 1.8em;*/
+	/*font-size: 2em;*/
+	margin: 0 30px -5px 70px;
+	padding-top: 13px;
+}
+
+@font-face {
+	font-family: Stroke;
+	src: '/fonts/Stroke-Light.otf';
+}
+
+.btn-success {
+	background-color: #16CEB9;
+	border-color: #14BEAB;
+}
+
+.btn-success:hover {
+	background-color: #65E0D2;
+	border-color: #16CEB9;
+}
+
+.logo {
+	font-family: 'Stroke';
+}
+
+.logo a {
+	text-decoration: none;
+	color: #000;
+}
+
+.logo span {
+	color: #16CEB9;
+}
+
 .price {
 	font-size: 2em;
 }
@@ -17,18 +53,16 @@
 	font-size: 50%;
 }
 
-/* MASONRY STUFF */
 .item {
 	width: 340px;
 	margin-bottom: 10px;
 	position: relative;
 }
 
-.item.w2 { width: 50%; }
-
-#feed img {
+.img-full {
 	min-width: 100%;
 }
+
 
 .productInfo {
 	display: none;

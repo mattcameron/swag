@@ -3,7 +3,7 @@
 		<% @products.each do |product| %>
 		<div class="item">
 			<a href="/stores/<%= product.store.name %>/<%= product.id %>">
-				<img src="<%= product.image_url %>" class="img-responsive" class="img-responsive img-rounded">
+				<img src="<%= product.image_url %>" class="img-responsive img-full">
 			</a>
 			<div class="productInfo">
 				<div class="row productHoverTop">
@@ -25,7 +25,7 @@
 							<a href="/stores/<%= product.store.name %>"><%= product.store.name %></a>
 						</div>
 						<div class="col-md-6 text-right">
-							<button type="button" class="btn btn-success">Add to Cart</button>
+							<button type="button" class="btn btn-success">Add to Bag</button>
 						</div>
 					</div>
 				</div>
