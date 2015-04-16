@@ -8,21 +8,28 @@ require_relative 'category'
 require_relative 'product'
 require 'pry'
 
+enable :sessions
+
+before do
+		@user = current_user
+end
+
 after do
 	ActiveRecord::Base.connection.close
 end
 
-
-# ALLOWS US TO USE THIS VARIABLE IN ALLLLL PAGES. e.g if in layout.erb
-
-# before do
-# 	@variable = blah blach
-# end
-
-
 get '/' do
-	@products = Product.order(:likes).reverse_order
-	erb :index
+	if logged_in?
+		@products = Product.order(:likes).reverse_order
+	else
+		@products = Product.order(:likes).reverse_order
+	end
+		erb :index
+
+end
+
+get '/login' do
+	erb :login
 end
 
 get '/signup' do
@@ -30,38 +37,45 @@ get '/signup' do
 end
 
 get '/stores/new' do
+	redirect to '/login' unless logged_in?
 	erb :store_new_page
 end
 
 get '/stores' do
+	redirect to '/login' unless logged_in?
 	@stores = Store.all
 	erb :store_index_page
 end
 
 get '/product/new' do
+	redirect to '/login' unless logged_in?
 	@stores = Store.all
 	@categories = Category.all
 	erb :new_product
 end
 
 get '/stores/:storeName/edit' do
+	redirect to '/login' unless logged_in?
 	@store = Store.where(name: params[:storeName]).first
 	erb :store_edit_page
 end
 
 get '/stores/:storeName' do
+	redirect to '/login' unless logged_in?
 	@store = Store.where( name: params[:storeName]).first
 	@products = @store.products.order(:likes).reverse_order
 	erb :store_show_page
 end
 
 get '/stores/:storeName/:productId' do
+	redirect to '/login' unless logged_in?
 	@store = Store.where( name: params[:storeName]).first
 	@product = @store.products.find(params[:productId])
 	erb :product_show_page
 end
 
 get '/stores/:storeName/:productId/edit' do
+	redirect to '/login' unless logged_in?
 	@stores = Store.all
 	@product = Product.find(params[:productId])
 	@categories = Category.all
@@ -80,7 +94,8 @@ get '/search' do
 end
 
 post '/signup' do
-	User.create( username: params[:inputUsername], email: params[:inputEmail], password: params[:inputPassword])
+	@user = User.create( username: params[:inputUsername], email: params[:inputEmail], password: params[:inputPassword])
+		session[:user_id] = @user.id
 	redirect to ('/')
 end
 
@@ -150,6 +165,8 @@ post '/:productId/newlike' do
 	product.update(likes: likes)
 end
 
+
+
 # API STUFF
 
 get '/api/stores' do
@@ -174,4 +191,34 @@ get '/api/products/:productId' do
 	product = Product.find(params[:productId])
 	content_type :json
 	product.to_json
+end
+
+
+# SESSION STUFF
+
+
+post '/session' do
+	@user = User.where(email: params[:email]).first
+	if @user && @user.authenticate(params[:password])
+		session[:user_id] = @user.id
+		redirect to '/'
+	else
+		erb :login
+	end
+end
+
+delete '/session' do
+	session[:user_id] = nil
+	redirect to '/'
+end
+
+
+helpers do
+	def logged_in?
+		!!current_user
+	end
+
+	def current_user
+			User.find_by(id: session[:user_id])
+	end
 end

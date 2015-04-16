@@ -1,3 +1,15 @@
+ <% if !logged_in? %>
+  <div class="container">
+    <div class="customBox text-center">
+      <h2>You're not signed up yet!</h2>
+      <h4>You should fix that...</h4>
+      <button class="btn btn-warning">I deserve swag</button>
+
+    </div>
+  </div>
+  <% end %>
+
+
 <div class="container-fluid" >
 	<div id="feed" class="row">
 		<% @products.each do |product| %>

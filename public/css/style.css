@@ -9,17 +9,22 @@
 	margin-top: 50px;
 }
 
+.productDetails h3 {
+	font-family: 'Helvetica';
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Stroke-Bold';
+}
+
 nav h1 {
-	/*display: inline;*/
-	/*line-height: 1.8em;*/
-	/*font-size: 2em;*/
-	margin: 0 30px -5px 70px;
+	margin: 0 30px -5px 0px;
 	padding-top: 13px;
 }
 
 @font-face {
 	font-family: Stroke;
-	src: '/fonts/Stroke-Light.otf';
+	src: '/fonts/Stroke-Regular.otf';
 }
 
 .btn-success {
@@ -105,6 +110,7 @@ nav h1 {
 
 .productLikes {
 	color: red;
+	font-family: 'Stroke-Light'
 }
 
 .productHoverBottom {
@@ -120,4 +126,20 @@ nav h1 {
 
 .categories {
 	margin: 20px 0;
+}
+
+.aside {
+	margin-top: 70px;
+}
+
+.notFullWidth {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.customBox {
+	background-color: #fafafa;
+	padding: 30px;
+	margin: 30px auto;
+	border-radius: 10px;
 }
