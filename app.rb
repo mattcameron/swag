@@ -61,7 +61,6 @@ get '/stores/:storeName/edit' do
 end
 
 get '/stores/:storeName' do
-	redirect to '/login' unless logged_in?
 	@store = Store.where( name: params[:storeName]).first
 	@products = @store.products.order(:likes).reverse_order
 	erb :store_show_page
