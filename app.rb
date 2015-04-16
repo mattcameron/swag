@@ -196,7 +196,6 @@ end
 
 # SESSION STUFF
 
-
 post '/session' do
 	@user = User.where(email: params[:email]).first
 	if @user && @user.authenticate(params[:password])
