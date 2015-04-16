@@ -54,6 +54,26 @@ nav h1 {
 	margin: 30px auto;
 }
 
+.navbar .container-fluid .logo .navbar-brand {
+	margin-left: 60px;
+	padding: 0;
+	color: #000;
+}
+
+.navbar .container-fluid .logo .navbar-brand:hover {
+	color: #777;
+}
+
+.navbar-form {
+	display: inline-block;
+	position: absolute;
+	left: 30%;
+}
+
+/*.navbar-form .form-group input {
+	width: 100%;
+}*/
+
 .price {
 	font-size: 2em;
 }
