@@ -53,6 +53,8 @@ $(document).ready(function() {
 	  });
 	});
 
+// display sign up modal if user is not signed in
+$('#signUpModal').modal(options)
 
 });
 

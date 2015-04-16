@@ -1,13 +1,20 @@
  <% if !logged_in? %>
-  <div class="container">
-    <div class="customBox text-center">
-      <h2>You're not signed up yet!</h2>
-      <h4>You should fix that...</h4>
-      <button class="btn btn-warning">I deserve swag</button>
-
+	<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center logo">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h1>SW<span>A</span>G</h1>
+      	<h2>You're not signed up yet!</h2>
+      	<h4>You should fix that...</h4>
+      	<button class="btn btn-success btn-lg regText"><a href="/signup" style="color: white">I deserve swag</a></button>
+      	or
+      	<button class="btn btn-default btn-lg regText" data-dismiss="modal" aria-label="Close">I hate swag</button>
+      </div>
     </div>
   </div>
-  <% end %>
+</div>
+<% end %>
 
 
 <div class="container-fluid" >

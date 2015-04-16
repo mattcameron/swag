@@ -9,7 +9,7 @@
 	margin-top: 50px;
 }
 
-.productDetails h3 {
+.productDetails h3, .regText {
 	font-family: 'Helvetica';
 }
 
@@ -48,6 +48,10 @@ nav h1 {
 
 .logo span {
 	color: #16CEB9;
+}
+
+.logo h2, h4 {
+	margin: 30px auto;
 }
 
 .price {
@@ -142,4 +146,12 @@ nav h1 {
 	padding: 30px;
 	margin: 30px auto;
 	border-radius: 10px;
+}
+
+
+
+/* MODALS */
+
+.modal-body {
+	padding: 20px 15px 30px 15px;
 }
