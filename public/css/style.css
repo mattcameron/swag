@@ -3,10 +3,13 @@
 }
 
 .likes {
-	color: red;
-	text-align: center;
-	font-size: 1.5em;
-	margin-top: 50px;
+	font-size: 1.3em;
+}
+
+.heartIcon {
+	margin-right: 5px;
+	font-size: 135%;
+	vertical-align: sub;
 }
 
 .productDetails h3, .regText {
@@ -70,16 +73,27 @@ nav h1 {
 	left: 30%;
 }
 
-/*.navbar-form .form-group input {
-	width: 100%;
-}*/
-
-.price {
-	font-size: 2em;
+.productDescription {
+	background-color: #fafafa;
+	border-radius: 10px;
+	padding: 20px 30px;
 }
 
-.price span {
-	font-size: 50%;
+.underline {
+	border-bottom: solid 1px #e7e7e7;
+}
+
+.buyInfo {
+	background-color: #fafafa;
+	border-radius: 10px;
+	padding: 30px;
+}
+
+.price {
+	font-size: 1.3em;
+	padding: 5px 10px 5px 10px;
+	border-bottom: solid 1px #e7e7e7;
+	border-top: solid 1px #e7e7e7;
 }
 
 .item {
@@ -134,7 +148,7 @@ nav h1 {
 
 .productLikes {
 	color: red;
-	font-family: 'Stroke-Light'
+	font-family: 'Stroke-Light';
 }
 
 .productHoverBottom {
@@ -149,7 +163,8 @@ nav h1 {
 }
 
 .categories {
-	margin: 20px 0;
+	font-size: 85%;
+	line-height: 2.5;
 }
 
 .aside {
@@ -161,13 +176,14 @@ nav h1 {
 	margin-right: 30px;
 }
 
-.customBox {
-	background-color: #fafafa;
-	padding: 30px;
-	margin: 30px auto;
-	border-radius: 10px;
+.inline {
+	display: inline;
 }
 
+#delete_button_link {
+	margin-top: -2px;
+	padding-left: 0;
+}
 
 
 /* MODALS */
