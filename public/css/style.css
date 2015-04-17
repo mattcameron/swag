@@ -84,16 +84,23 @@ nav h1 {
 }
 
 .buyInfo {
-	background-color: #fafafa;
+	background-image: url('/images/pricetag.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 	border-radius: 10px;
 	padding: 30px;
+	transform: rotate(15deg);
+	margin-top: 30px;
 }
 
 .price {
-	font-size: 1.3em;
-	padding: 5px 10px 5px 10px;
-	border-bottom: solid 1px #e7e7e7;
-	border-top: solid 1px #e7e7e7;
+	font-size: 200%;
+	color: #fff;
+	margin-left: 20px;
+	margin-top: 15px;
+	font-family: 'Stroke';
+	letter-spacing: .2em;
 }
 
 .item {
@@ -105,7 +112,6 @@ nav h1 {
 .img-full {
 	min-width: 100%;
 }
-
 
 .productInfo {
 	display: none;
