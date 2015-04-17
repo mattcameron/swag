@@ -110,6 +110,11 @@ post '/swagbag/:productId' do
 	redirect to '/swagbag'
 end
 
+delete '/swagbag/:productId' do
+	Lineitem.find_by(product_id: params[:productId]).delete
+	redirect to '/swagbag'
+end
+
 post '/signup' do
 	@user = User.create( username: params[:inputUsername], email: params[:inputEmail], password: params[:inputPassword])
 		session[:user_id] = @user.id
