@@ -13,17 +13,14 @@
 	</tr>
 
 <% @lineItems.each do |lineitem| %>
-<tr>
+<tr id="row<%= lineitem.product_id %>">
 	<td class="col-md-1"><a href="/stores/<%= lineitem.product.store.name %>/<%= lineitem.product_id %>"><img class="img-responsive" src="<%= lineitem.product.image_url %>" alt="product image"></a></td>
 	<td><a href="/stores/<%= lineitem.product.store.name %>/<%= lineitem.product_id %>"><%= lineitem.product.name %></a></td>
 	<td><%= lineitem.qty %></td>
 	<td>$<%= "%.2f" % lineitem.unit_price %></td>
 	<td class="text-right">$<%= "%.2f" % lineitem.line_item_price %></td>
 	<td>
-		<form action="/swagbag/<%= lineitem.product_id %>" method="post">
-			<input type="hidden" name="_method" value="delete">
-			<button class="close"><span aria-hidden="true">&times;</span></button>
-	</form>
+			<button class="close deleteFromCart"><span id="<%= lineitem.product_id %>" aria-hidden="true">&times;</span></button>
 </td>
 </tr>
 <% end %>

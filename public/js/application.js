@@ -24,12 +24,12 @@ $('.heartIcon').hover(function() {
 });
 
 $('.productLikes').on('click', function() {
-	productId = event.target.id
-	url = "/" + productId + "/newlike"
+	var productId = event.target.id
+	var url = "/" + productId + "/newlike"
 	$.ajax({
 		url: url,
 		method: 'post',
-		success: function () {
+		success: function() {
 			$.ajax({
 				url: '/api/products/' + productId,
 				method: 'get',
@@ -40,6 +40,17 @@ $('.productLikes').on('click', function() {
 		}
 	})
 });
+
+$('.deleteFromCart').on('click', function () {
+	var productId = event.target.id
+	$.ajax({
+		url: '/swagbag/' + productId,
+		method: 'delete',
+		success: function() {
+			$('#row' + productId).remove();
+			}
+	})
+})
 
 $(document).ready(function() {
 

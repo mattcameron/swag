@@ -110,11 +110,6 @@ post '/swagbag/:productId' do
 	redirect to '/swagbag'
 end
 
-delete '/swagbag/:productId' do
-	Lineitem.find_by(product_id: params[:productId]).delete
-	redirect to '/swagbag'
-end
-
 post '/signup' do
 	@user = User.create( username: params[:inputUsername], email: params[:inputEmail], password: params[:inputPassword])
 		session[:user_id] = @user.id
@@ -187,6 +182,9 @@ post '/:productId/newlike' do
 	product.update(likes: likes)
 end
 
+delete '/swagbag/:productId' do
+	Lineitem.find_by(product_id: params[:productId]).delete
+end
 
 
 # API STUFF
@@ -213,6 +211,12 @@ get '/api/products/:productId' do
 	product = Product.find(params[:productId])
 	content_type :json
 	product.to_json
+end
+
+get '/api/cart' do
+	lineitems = Lineitem.all
+	content_type :json
+	lineitems.to_json
 end
 
 
