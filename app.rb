@@ -19,6 +19,16 @@ after do
 	ActiveRecord::Base.connection.close
 end
 
+
+# Database config
+local_db = {
+	adapter: 'postgresql',
+	database: 'photos_app'
+}
+
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || local_db)
+
+
 get '/' do
 	if logged_in?
 		@products = Product.order(:likes).reverse_order
