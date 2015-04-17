@@ -44,7 +44,9 @@
 							<a href="/stores/<%= product.store.name %>"><%= product.store.name %></a>
 						</div>
 						<div class="col-md-6 text-right">
-							<button type="button" class="btn btn-success">Add to Bag</button>
+							<form action="/swagbag/<%= product.id %>" method="post">
+								<button type="submit" class="btn btn-success addToCart">Add to Bag</button>
+							</form>
 						</div>
 					</div>
 				</div>

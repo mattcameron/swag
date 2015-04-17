@@ -10,5 +10,6 @@ require_relative 'product'
 require_relative 'store'
 require_relative 'category'
 require_relative 'user'
+require_relative 'lineitem'
 
 binding.pry

@@ -185,7 +185,16 @@ nav h1 {
 	padding-left: 0;
 }
 
+.inFocus {
+	background-color: #fafafa;
+	border-radius: 10px;
+	padding: 30px;
+	max-width: 70%;
+}
 
+#cart td {
+	vertical-align: middle;
+}
 /* MODALS */
 
 .modal-body {

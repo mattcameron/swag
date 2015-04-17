@@ -6,6 +6,7 @@ require_relative 'user'
 require_relative 'store'
 require_relative 'category'
 require_relative 'product'
+require_relative 'lineitem'
 require 'pry'
 
 enable :sessions
@@ -90,6 +91,22 @@ get '/search' do
 		@products = Product.where(category_id: find_cat.id).order(:likes).reverse_order
 		erb :index
 	end
+end
+
+get '/swagbag' do
+	@lineItems = Lineitem.all
+	erb :swagbag
+end
+
+post '/swagbag/:productId' do
+	product = Product.find(params[:productId])
+	lineitem = Lineitem.new
+	lineitem.product_id = product.id
+	lineitem.qty = 1 # hardcoded to 1 for now
+	lineitem.unit_price = product.price
+	lineitem.line_item_price = (product.price) * lineitem.qty
+	lineitem.save
+	redirect to '/swagbag'
 end
 
 post '/signup' do

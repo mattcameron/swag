@@ -38,7 +38,9 @@
 					$<%= "%.2f" % @product.price %>
 				</div>
 				<div class="col-md-8">
-					<a href="#" class="btn btn-success btn-lg">Add to Bag</a>
+					<form action="/swagbag/<%= @product.id %>" method="post">
+					<button type="submit" class="btn btn-success btn-lg">Add to Bag</button>
+				</form>
 				</div>
 			</div>
 		</div>
