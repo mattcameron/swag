@@ -1,7 +1,7 @@
 <div class="container">
 	<% @stores.each do |store| %>
 	<a href="/stores/<%= store.name %>">
-		<div class="jumbotron">
+		<div class="storeBox">
 			<div class="media">
 				<div class="media-left col-md-2">
 						<img class="img-responsive" src="<%= store.products.first.image_url %>" alt="placeholder">

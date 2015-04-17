@@ -1,7 +1,21 @@
 <div class="container-fluid">
-	<div class="row text-center">
-		<h1><%= @store.name %></h1>
+	<div class="row text-center logo">
+		<h1><a href="<%= @store_url %>" style=><%= @store.name %></a></h1>
 	</div>
+	<div class="row text-center store-description">
+		<%= @store.description %>
+	</div>
+<div class="container storeInfo">
+	<div class="row text-center">
+		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-knight storeIcons"></span><%= @store.products.count %> products</div>
+		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-heart storeIcons"></span>124 likes</div>
+		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-map-marker storeIcons"></span><%= @store.location %></div>
+		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-tag storeIcons"></span>$28 avg price</div>
+	</div>
+
+</div>
+
+
 	<div id="feed" class="row">
 		<% @products.each do |product| %>
 		<div class="item">

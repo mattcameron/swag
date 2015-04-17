@@ -12,6 +12,46 @@
 	vertical-align: sub;
 }
 
+.storeIcons {
+	font-size: 1.8em;
+	color: #16CEB9;
+	vertical-align: bottom;
+	margin-right: 20px;
+}
+
+.storeInfo {
+	margin-bottom: 50px;
+	padding: 10px;
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+	font-size: 1.3em;
+	font-family: 'Stroke';
+	letter-spacing: .1em;
+}
+
+.store-description {
+	margin-bottom: 10px;
+	font-family: 'Stroke';
+	letter-spacing: .1em;
+
+}
+
+.media-body {
+	padding-left: 20px;
+	padding-top: 20px;
+}
+
+.storeBox {
+	background-color: #fafafa;
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px;
+}
+
+.productDetails {
+	margin-top: 50px;
+}
+
 .productDetails h3, .regText {
 	font-family: 'Helvetica';
 }
