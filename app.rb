@@ -7,7 +7,7 @@ require_relative 'store'
 require_relative 'category'
 require_relative 'product'
 require_relative 'lineitem'
-require 'pry'
+# require 'pry'
 
 enable :sessions
 
