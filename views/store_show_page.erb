@@ -8,9 +8,9 @@
 <div class="container storeInfo">
 	<div class="row text-center">
 		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-knight storeIcons"></span><%= @store.products.count %> products</div>
-		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-heart storeIcons"></span>124 likes</div>
+		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-heart storeIcons"></span><%= @store.store_likes %> likes</div>
 		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-map-marker storeIcons"></span><%= @store.location %></div>
-		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-tag storeIcons"></span>$28 avg price</div>
+		<div class="col-md-3 iconBox"><span class="glyphicon glyphicon-tag storeIcons"></span>$<%= @store.avg_price %> avg price</div>
 	</div>
 
 </div>
