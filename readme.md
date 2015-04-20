@@ -10,11 +10,11 @@ Swag is a marketplace of products from online stores all over the Internet. It e
 ### Vision
 For this project I wanted to create an application which could have potential real-world application. Having worked very closely with a large number of online stores, I understand the importance and difficulty stores face in getting their products in front of potential customers.
 
-This is because shopping on the internet is harder than it should be. If I want to buy a pair of shoes, I have to individually find and visit the websites of each shoe company I can think of (or the first handful of results on google...). This is tiresome and inefficient, and it results in many online stores missing out on prospective customers.
+This is because shopping on the Internet is harder than it should be. If I want to buy a pair of shoes, I have to individually find and visit the websites of each shoe company I can think of (or the first handful of results on google...). This is tiresome and inefficient, and it results in many online stores missing out on prospective customers.
 
 In the physical world we have learned to group shops together in shopping centres. This provides ease of access, customer exposure, and creates a positive economic atmosphere.
 
-**Wouldn't it be great if there was one central place on the internet where you could browse products without all the time and effort?**
+**Wouldn't it be great if there was one central place on the Internet where you could browse products without all the time and effort?**
 
 Enter Swag.
 
